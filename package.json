@@ -1,0 +1,22 @@
+{
+  "name": "new-website",
+  "version": "1.0.0",
+  "description": "** NEW Website **",
+  "main": ".eleventy.js",
+  "scripts": {
+    "tailwind:serve": "npx tailwindcss -i new-website.css -o _site/new-website.css --watch",
+    "tailwind:build": "npx tailwindcss -i new-website.css -o _site/new-website.css",
+    "eleventy:build": "npx @11ty/eleventy",
+    "eleventy:serve": "npx @11ty/eleventy --serve",
+    "build": "npm run eleventy:build && npm run tailwind:build",
+    "serve": "concurrently \"npm run eleventy:serve\" \"npm run tailwind:serve\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "concurrently": "^7.5.0",
+    "nunjucks": "^3.2.3",
+    "tailwindcss": "^3.2.2"
+  }
+}

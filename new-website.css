@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-3xl;
+    @apply font-bold;
+    @apply text-primary;
+    @apply font-display;
+    @apply mb-6;
+  }
+  h3 {
+    @apply text-xl;
+    @apply font-bold;
+    @apply text-primary;
+    @apply font-display;
+    @apply mb-6;
+  }
+  p {
+    @apply mb-3;
+  }
+  hr {
+    @apply w-1/6;
+    @apply my-8;
+    @apply mx-auto;
+    @apply text-primary;
+  }
+  a {
+    @apply underline;
+  }
+}
