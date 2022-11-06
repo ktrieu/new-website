@@ -22,12 +22,14 @@
         <div
             class="flex min-h-screen flex-col">
             <!-- Navbar -->
-            <nav class="flex border-b-4 border-primary p-4">
-                <ul class="flex items-center">
-                    <li class="px-3 text-xl">
-                        <a class="no-underline hover:underline" href="/">HOME</a>
-                    </li>
-                </ul>
+            <nav class="flex border-b-4 border-primary py-4">
+                <div class="container mx-auto px-3 md:px-12 max-w-screen-lg">
+                    <ul class="flex items-center">
+                        <li class="text-xl">
+                            <a class="no-underline hover:underline" href="/">HOME</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
             <div class="flex-1 mb-12"> {% block content %}{% endblock %}
                 </div>
