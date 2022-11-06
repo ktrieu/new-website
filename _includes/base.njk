@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="scroll-smooth">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&family=Quicksand:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link href="/new-website.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8"/>
+        <title>{{ page_title }} | kevintrieu.com</title>
+        <!-- Link preview tags -->
+        <meta name="title" content="{{ page_title }} | kevintrieu.com"/>
+        <meta name="description" content="Hi, I'm Kevin Trieu."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://kevintrieu.com/"/>
+        <meta property="og:title" content="{{ page_title }} | kevintrieu.com"/>
+        <meta property="og:description" content="Hi, I'm Kevin Trieu."/>
+    </head>
+    <body>
+        <div
+            class="flex min-h-screen flex-col">
+            <!-- Navbar -->
+            <nav class="flex border-b-4 border-primary p-4">
+                <ul class="flex items-center">
+                    <li class="px-3 text-xl">
+                        <a class="no-underline hover:underline" href="/">HOME</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="flex-1 mb-12"> {% block content %}{% endblock %}
+                </div>
+                <div>
+                    <footer class="mt-12 border-t-4 border-t-primary flex flex-col items-center p-6">
+                        <p class="text-center">
+                            Hi, at some point, contact info should go here.
+                        </p>
+                    </footer>
+                </div>
+            </body>
+        </body>
+    </html>

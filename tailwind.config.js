@@ -2,11 +2,12 @@ module.exports = {
   content: ["**/*.njk"],
   theme: {
     fontFamily: {
-      sans: ["Public\\ Sans", "sans-serif"],
-      display: ["Prata", "serif"],
+      sans: ["Kiwi Maru", "sans-serif"],
+      display: ["Quicksand", "serif"],
     },
     colors: {
-      primary: "#067bc2",
+      primary: "#E4572E",
+      secondary: "#F0F8EA",
     },
   },
 };
