@@ -10,4 +10,5 @@ module.exports = {
       secondary: "#F0F8EA",
     },
   },
+  plugins: [require("@tailwindcss/typography")],
 };

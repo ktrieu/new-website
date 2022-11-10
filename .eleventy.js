@@ -17,6 +17,10 @@ const notFoundMiddleware = (req, res) => {
   res.end();
 };
 
+const formatBlogDate = (date) => {
+  return date.toLocaleDateString("en-US", { timeZone: "UTC" });
+};
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("static/");
   eleventyConfig.addPassthroughCopy("static/");
@@ -29,4 +33,6 @@ module.exports = function (eleventyConfig) {
       },
     },
   });
+
+  eleventyConfig.addNunjucksFilter("formatBlogDate", formatBlogDate);
 };
