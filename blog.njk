@@ -23,5 +23,36 @@ pagination:
                 <hr class="w-full"/>
             </div>
         {% endfor -%}
-    </div>
-{% endblock %}
+        <nav aria-label="pagination">
+            <ol class="flex w-1/4 mx-auto justify-around">
+                <li>
+                    {% if pagination.href.previous %}
+                        <a href="{{ pagination.href.previous }}">
+                            <i class="text-primary fa-solid fa-arrow-left"></i>
+                        </a>
+                    {% else %}
+                        <i class="fa-solid fa-arrow-left"></i>
+                    {% endif %}
+                </li>
+                {%- for entry in pagination.pages %}
+                    <li>
+                        {% if page.url == pagination.hrefs[ loop.index0 ] %}
+                            <a class="font-display text-xl" aria-current="page" href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
+                        {% else %}
+                            <a class="font-display text-xl no-underline" href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
+                        {% endif %}
+                    </a>
+                </li>
+            {%- endfor %}
+            <li>
+                {% if pagination.href.next %}
+                    <a href="{{ pagination.href.next }}">
+                        <i class="text-primary fa-solid fa-arrow-right"></i>
+                    </a>
+                {% else %}
+                    <i class="fa-solid fa-arrow-right"></i>
+                {% endif %}
+            </li>
+        </ol>
+    </nav>
+</div>{% endblock %}
