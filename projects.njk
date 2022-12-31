@@ -1,0 +1,21 @@
+{% extends 'base.njk' %}
+{% set page_title = 'Projects' %}
+{% block content %}
+    <div class="mt-12 container mx-auto px-3 md:px-12 max-w-screen-lg text-lg">
+        <h1 class=" text-primary mb-3 text-6xl">Projects</h1>
+        <p class="mb-12">
+            I've done (and half-done) a bunch of other stuff too, so take a look at my
+            <a href="https://github.com/ktrieu">GitHub</a>
+            for more.
+        </p>
+        {%- for project in collections.projects %}
+            <div class="mb-6">
+                <a class="block no-underline hover:underline mb-6" href="{{ project.url }}">
+                    <h3 class="text-3xl mb-1">{{ project.data.title }}</h3>
+                    <p class="italic">{{ project.data.tagline }}</p>
+                </a>
+                <div class="max-h-16 overflow-hidden break-words">{{ project.templateContent | safe }}</div>
+            </div>
+        {% endfor -%}
+    </div>
+{% endblock %}

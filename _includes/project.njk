@@ -1,0 +1,22 @@
+{% extends 'base.njk' %}
+{% set page_title = title %}
+{% block content %}
+    <div class="mt-12 container mx-auto px-3 md:px-12 max-w-screen-lg text-lg">
+        <a class="block no-underline hover:underline mb-6" href="/projects">← Projects</a>
+        <h1 class="text-primary text-3xl mb-1">{{ title }}</h1>
+        <p class="italic">{{ tagline }}</p>
+        <div class="mb-12">
+            {%- for link in links %}
+                <a class="block no-underline hover:underline mb-1" href="{{ link.href }}">
+                    <i class="inline w-8 h-8 {{ link.icon }}"></i>{{ link.href }}
+                </a>
+            {% endfor -%}
+        </div>
+        <div class="mb-12">
+            <img class="w-100" src="{{ photo }}"/>
+        </div>
+        <div class="prose leading-relaxed">
+            {{ content | safe }}
+        </div>
+    </div>
+{% endblock %}
