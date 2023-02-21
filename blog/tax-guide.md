@@ -173,3 +173,27 @@ The one exception is [this passage](<https://www.canada.ca/en/department-finance
 
 If you do fall under this, you need to complete a separate schedule OI form and to enter Line 1a as 0. Again, this doesn't apply to me, so I won't go into more detail. Read the instructions for more info.
 :::
+
+### Lines 2a and 2b
+
+This covers interest payments you may have received. Again they only want interest _effectively connected with a US trade or business_. The main case here is going to be taxable interest on US bank accounts. I just checked, and my account apparently never gave me any interest, so I get to skip this section.
+
+If this applies to you, you should have Form 1099s from the banks that paid you interest. You can probably get them from the bank's website.
+
+::: details Again with the effectively connected?
+Again, [Publication 519](https://www.irs.gov/publications/p519#en_US_2022_publink1000222211) gives us the goods:
+
+> Generally, U.S. source interest income includes the following items.
+>
+> - Interest on bonds, notes, or other interest-bearing obligations of U.S. residents or domestic corporations.
+> - Interest paid by a domestic or foreign partnership or foreign corporation engaged in a U.S. trade or business at any time during the tax year.
+> - Original issue discount (OID).
+> - Interest from a state, the District of Columbia, or the U.S. Government.
+
+Unfortunately, I can't find a source that unequivocally states that bank accounts are interest-bearing obligations, but the exceptions immediately following that paragraph exclude "interest paid by a foreign branch... on deposits or withdrawable accounts", which leads me to believe that bank account interest would count, if it was from a "domestic corporation".
+
+And, in case you're curious, this [shady-looking IRS tax tutorial](https://apps.irs.gov/app/understandingTaxes/hows/tax_tutorials/mod03/tt_mod03_glossary.jsp?backPage=tt_mod03_01.jsp) explains what interest is taxable and tax-exempt. In particular:
+
+> All interest income is taxable unless specifically excluded... Tax-exempt interest income is earned from bonds issued by states, cities, or counties and the District of Columbia.
+
+:::
