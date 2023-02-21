@@ -115,3 +115,55 @@ If all your crypto activity is covered by these three exceptions, then you can c
 
 For some reason, getting a gift isn't an exception but buying them is, which means I have to check yes thanks to a free gift from a company that doesn't even exist anymore.
 :::
+
+### Dependents
+
+There's a huge amount of rules to determine who is and is not a dependent. If you want to read them, they're [here.](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink10004904)
+
+In broad strokes, unless you have a younger relative (or an older, poor one) that lived with you in the US, and that you financially supported, you shouldn't put down anything here.
+
+### Lines 1a through 1z
+
+This is real Tax Hours now. Box 1a should be the number in box 1 on your W-2 (the American equivalent of the T4). Check your HR platform/email if you don't have one. The instructions warn you that this should be income _effectively connected with a US trade or business_. Any income that is wages from an American business counts.
+
+You can ignore the rest of the boxes unless you made less than US$10,000 for the entire year. In that case, check line 1k in the section below.
+
+::: details Are you sure I can ignore them?
+The [1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink24811vd0e4597) run through the rest of them. Let's go through them:
+
+_Line 1b (Household Employee Wages Not Reported on Form(s) W-2)_
+
+If you're a household employee ([housekeepers, maids, babysitters, gardeners, and others](https://www.irs.gov/taxtopics/tc756)), your employer can pay you up to $2,400 without giving you a W-2. This probably doesn't apply to you.
+
+_Line 1c (Tip Income Not Reported on Line 1a)_
+
+This is for tips you didn't report to your employer (since that doesn't make it onto a W-2). This probably doesn't apply to you.
+
+_Line 1d (Medicaid Waiver Payments Not Reported on Form(s) W-2)_
+
+A [Medicaid Waiver](https://www.investopedia.com/medicaid-waiver-5217848) is a special legal mechanism that allows the federal or state government to change the rules - you're probably not eligible for Medicaid.
+
+_Line 1e (Taxable Dependent Care Benefits From Form 2441, Line 26)_
+
+These are [benefits from your employer](https://www.investopedia.com/terms/d/dependent-care-benefits.asp) to help you care for dependents. As discussed above, you probably don't have any.
+
+_Line 1f (Employer-Provided Adoption Benefits From Form 8839, Line 29)_
+
+Your employer probably didn't help you adopt anyone.
+
+_Line 1g (Wages From Form 8919, Line 6)_
+
+[Form 8919](https://www.irs.gov/forms-pubs/about-form-8919) deals with uncollected Social Security and Medicare taxes in the case where you were an employee but your employer treated you as an independent contractor. J-1 visa holders are actually [exempt](https://www.irs.gov/individuals/international-taxpayers/aliens-employed-in-the-us-social-security-taxes#:~:text=Nonresident%20alien%20students%2C%20scholars%2C%20professors,States%20as%20long%20as%20such) from these taxes.
+
+_Line 1h (Other Earned Income)_
+
+This is a catch-all "other" box. The one thing here that might be relevant is if you received a scholarship in the US that didn't give you a W-2, in which case you'd have to report it on a separate form, Schedule 1. This doesn't apply to me, so I won't go into it.
+
+_Line 1k (Treaty-Exempt Income)_
+
+This is for all "income that is exempt from tax by an income tax treaty". Canada and the US actually have a [tax treaty](https://www.canada.ca/en/department-finance/programs/tax-policy/tax-treaties/country/united-states-america-convention-consolidated-1980-1983-1984-1995-1997.html), but to the best of my knowledge, there are almost no exemptions that would apply to your average co-op student.
+
+The one exception is [this passage](<https://www.canada.ca/en/department-finance/programs/tax-policy/tax-treaties/country/united-states-america-convention-consolidated-1980-1983-1984-1995-1997.html#:~:text=such%20remuneration%20does%20not%20exceed%20ten%20thousand%20dollars%20(%2410%2C000)%20in%20the%20currency%20of%20that%20other%20State>) that states that income under US$10,000 can be taxed in Canada only. However, most co-ops would pay more than that, I imagine.
+
+If you do fall under this, you need to complete a separate schedule OI form and to enter Line 1a as 0. Again, this doesn't apply to me, so I won't go into more detail. Read the instructions for more info.
+:::
