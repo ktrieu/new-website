@@ -65,7 +65,7 @@ The [instructions](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink10
 >
 > 1.  You were a nonresident alien engaged in a trade or business in the United States during 2022.
 
-Being "engaged in a trade or business" is a surprisingly tricky concept to define, but according to the IRS's explainer on Effectively Connected Income:
+Being "engaged in a trade or business" is a surprisingly tricky concept to define, but according to the IRS's explainer on [Effectively Connected Income](https://www.irs.gov/individuals/international-taxpayers/effectively-connected-income-eci#:~:text=You%20are%20considered%20to%20be%20engaged%20in%20a%20trade%20or%20business%20in%20the%20United%20States%20if%20you%20are%20temporarily%20present%20in%20the%20United%20States%20as%20a%20nonimmigrant%20on%20an%20%22F%2C%22%20%22J%2C%22%20%22M%2C%22%20or%20%22Q%22%20visa):
 
 > You are considered to be engaged in a trade or business in the United States if you are temporarily present in the United States as a nonimmigrant on an "F," "J," "M," or "Q" visa.
 
