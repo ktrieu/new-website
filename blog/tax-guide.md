@@ -124,12 +124,18 @@ In broad strokes, unless you have a younger relative (or an older, poor one) tha
 
 ### Lines 1a through 1z
 
-This is real Tax Hours now. Box 1a should be the number in box 1 on your W-2 (the American equivalent of the T4). Check your HR platform/email if you don't have one. The instructions warn you that this should be income _effectively connected with a US trade or business_. Any income that is wages from an American business counts.
+This is real Tax Hours now. Box 1a should be the number in box 1 on your W-2 (the American equivalent of the T4). Check your HR platform/email if you don't have one. The instructions warn you that this should be income _effectively connected with a US trade or business_. Any salary from an American business counts, but see below for a more detailed explanation.
 
 You can ignore the rest of the boxes unless you made less than US$10,000 for the entire year. In that case, check line 1k in the section below.
 
-::: details Are you sure I can ignore them?
-The [1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink24811vd0e4597) run through the rest of them. Let's go through them:
+::: details I want to know more about Line 1
+First, let's figure out what exactly income _effectively connected with a US trade or business_ is. [Publication 519](https://www.irs.gov/publications/p519#en_US_2022_publink1000222326) seems to be the main source on this, and it says
+
+> Personal service income you receive in a tax year in which you are engaged in a U.S. trade or business is effectively connected with a U.S. trade or business... Personal service income includes wages, salaries...
+
+So yeah, looks like wages from US businesses are certainly covered. We are kind of overthinking this, I will admit, but it's good (and fun!) to make sure of these things.
+
+The [1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink24811vd0e4597) run through most of the boxes I said to ignore. Let's go through them:
 
 _Line 1b (Household Employee Wages Not Reported on Form(s) W-2)_
 
@@ -161,7 +167,7 @@ This is a catch-all "other" box. The one thing here that might be relevant is if
 
 _Line 1k (Treaty-Exempt Income)_
 
-This is for all "income that is exempt from tax by an income tax treaty". Canada and the US actually have a [tax treaty](https://www.canada.ca/en/department-finance/programs/tax-policy/tax-treaties/country/united-states-america-convention-consolidated-1980-1983-1984-1995-1997.html), but to the best of my knowledge, there are almost no exemptions that would apply to your average co-op student.
+This is a special [1040NR box](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100047363) for all "income that is exempt from tax by an income tax treaty". Canada and the US actually have a [tax treaty](https://www.canada.ca/en/department-finance/programs/tax-policy/tax-treaties/country/united-states-america-convention-consolidated-1980-1983-1984-1995-1997.html), but to the best of my knowledge, there are almost no exemptions that would apply to your average co-op student.
 
 The one exception is [this passage](<https://www.canada.ca/en/department-finance/programs/tax-policy/tax-treaties/country/united-states-america-convention-consolidated-1980-1983-1984-1995-1997.html#:~:text=such%20remuneration%20does%20not%20exceed%20ten%20thousand%20dollars%20(%2410%2C000)%20in%20the%20currency%20of%20that%20other%20State>) that states that income under US$10,000 can be taxed in Canada only. However, most co-ops would pay more than that, I imagine.
 
