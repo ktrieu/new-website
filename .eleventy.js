@@ -1,6 +1,7 @@
 const fs = require("fs");
 
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItContainer = require("markdown-it-container");
 const tocPlugin = require("eleventy-plugin-toc");
 
 const NOT_FOUND_PATH = "_site/404/index.html";
@@ -24,6 +25,23 @@ const formatBlogDate = (date) => {
   return date.toLocaleDateString("en-US", { timeZone: "UTC" });
 };
 
+const getDetailsRenderer = (md) => ({
+  validate: (params) => {
+    return params.trim().match(/^details\s+(.*)$/);
+  },
+
+  render: (tokens, idx) => {
+    if (tokens[idx].nesting === 1) {
+      // opening tag
+      const title = tokens[idx].info.trim().match(/^details\s+(.*)$/)[1];
+      return "<details><summary>" + md.utils.escapeHtml(title) + "</summary>\n";
+    } else {
+      // closing tag
+      return "</details>\n";
+    }
+  },
+});
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("static/");
   eleventyConfig.addPassthroughCopy("static/");
@@ -40,6 +58,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksFilter("formatBlogDate", formatBlogDate);
 
   eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItAnchor));
+  eleventyConfig.amendLibrary("md", (mdLib) =>
+    mdLib.use(markdownItContainer, "details", getDetailsRenderer(mdLib))
+  );
 
   eleventyConfig.addPlugin(tocPlugin, {
     tags: ["h1", "h2", "h3", "h4"],

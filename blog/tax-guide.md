@@ -42,54 +42,35 @@ We'll go through these one-by-one.
 
 Before we get started, we should cover what you are to America. For tax purposes, _if you are a Canadian citizen on a J-1 visa_, you are referred to by the delightfully sci-fi term **nonresident alien**.
 
-<details>
-    <summary>What makes me a nonresident alien?</summary>
+::: details What makes me a nonresident alien?
+According to the IRS page on [nonresident aliens](https://www.irs.gov/individuals/international-taxpayers/nonresident-aliens):
 
-    According to the IRS page on [nonresident aliens](https://www.irs.gov/individuals/international-taxpayers/nonresident-aliens):
+> An alien is any individual who is not a U.S. citizen or U.S. national. A nonresident alien is an alien who has not passed the green card test or the substantial presence test.
 
-    <blockquote>
-    An alien is any individual who is not a U.S. citizen or U.S. national. A nonresident alien is an alien who has not passed the green card test or the substantial presence test.
-    </blockquote>
+The [green card test](https://www.irs.gov/individuals/international-taxpayers/us-tax-residency-green-card-test) states that anyone with a green card (a permanent resident) is not a nonresident alien.
 
-    The [green card test](https://www.irs.gov/individuals/international-taxpayers/us-tax-residency-green-card-test) states that anyone with a green card (a permanent resident) is not a nonresident alien.
+The [substantial presence test](https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test) has some fairly complicated rules around how long you've been in the US for the last three years. Luckily for us:
 
-    The [substantial presence test](https://www.irs.gov/individuals/international-taxpayers/substantial-presence-test) has some fairly complicated rules around how long you've been in the US for the last three years. Luckily for us:
+> A student temporarily present in the U.S. under an "F," "J," "M," or "Q" visa, who substantially complies with the requirements of the visa
 
-    <blockquote>
-    A student temporarily present in the U.S. under an "F," "J," "M," or "Q" visa, who substantially complies with the requirements of the visa
-    </blockquote>
-
-    doesn't count under this rule. If the only time you've spent in the US was under a J-1 visa for co-op, the substantial presence test does not apply to you.
-
-</details>
+doesn't count under this rule. If the only time you've spent in the US was under a J-1 visa for co-op, the substantial presence test does not apply to you.
+:::
 
 Nonresident aliens get a special version of the standard 1040 form, [the 1040NR](https://www.irs.gov/forms-pubs/about-form-1040-nr). You can fill out [a PDF version](https://www.irs.gov/pub/irs-pdf/f1040nr.pdf), as well as view the frankly monstrous [instructions.](https://www.irs.gov/instructions/i1040nr) If you're planning on reading those instructions yourself, you will also need the instructions for the OG [Form 1040.](https://www.irs.gov/instructions/i1040gi) The 1040NR instructions are merely an add-on to those.
 
-<details>
-    <summary>Why this form?</summary>
+::: details Why this form?
+The [instructions](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100057473) say:
 
-    The 1040NR page above mentions that
+> You must file Form 1040-NR if any of the following conditions apply to you.
+>
+> 1.  You were a nonresident alien engaged in a trade or business in the United States during 2022.
 
-    <blockquote>
-    you may need to file Form 1040-NR if you... were a nonresident alien engaged in a trade or business in the United States.
-    </blockquote>
+Being "engaged in a trade or business" is a surprisingly tricky concept to define, but according to the IRS's explainer on Effectively Connected Income:
 
-    The [instructions](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100057473) go into more detail:
+> You are considered to be engaged in a trade or business in the United States if you are temporarily present in the United States as a nonimmigrant on an "F," "J," "M," or "Q" visa.
 
-    <blockquote>
-    You must file Form 1040-NR if any of the following conditions apply to you.<br/>
-        1. You were a nonresident alien engaged in a trade or business in the United States during 2022.
-    </blockquote>
-
-    Being "engaged in a trade or business" is a surprisingly tricky concept to define, but according to the IRS's explainer on Effectively Connected Income:
-
-    <blockquote>
-    You are considered to be engaged in a trade or business in the United States if you are temporarily present in the United States as a nonimmigrant on an "F," "J," "M," or "Q" visa.
-    </blockquote>
-
-    That's you.
-
-</details>
+That's you.
+:::
 
 We'll go through each box on the form step-by-step.
 
@@ -115,27 +96,22 @@ They're looking to see if you did anything with crypto. If you did anything othe
 
 If you sold, which I never did, you also have to report this as capital gains on some secondary forms [the 1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000111717) will tell you about. Have fun with that.
 
-<details>
-    <summary>Do I have to check yes?</summary>
+::: details Do I have to check yes?
+This is all from the [Form 1040 instructions.](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000111717)
 
-    This is all from the [Form 1040 instructions.](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000111717)
+Digital assets are:
 
-    Digital assets are:
-    <blockquote>
-    any digital representations of value that are recorded on a cryptographically secured distributed ledger or any similar technology. For example, digital assets include non-fungible tokens (NFTs) and virtual currencies, such as cryptocurrencies and stablecoins.
-    </blockquote>
+> any digital representations of value that are recorded on a cryptographically secured distributed ledger or any similar technology. For example, digital assets include non-fungible tokens (NFTs) and virtual currencies, such as cryptocurrencies and stablecoins.
 
-    I'm not a crypto expert but this seems to include everything you might think of as "crypto", including Bitcoin, Ethereum, NFTs, and various shitcoins.
+I'm not a crypto expert but this seems to include everything you might think of as "crypto", including Bitcoin, Ethereum, NFTs, and various shitcoins.
 
-    They want you to check "yes" if you received digital assets as payment, for mining, or as a gift, or if you sold them. Selling, by the way, is a pretty broad definition, including selling for money, for things of value like property, and for other digital assets.
+They want you to check "yes" if you received digital assets as payment, for mining, or as a gift, or if you sold them. Selling, by the way, is a pretty broad definition, including selling for money, for things of value like property, and for other digital assets.
 
-    If all your crypto activity is covered by these three exceptions, then you can check "no":
-    <blockquote>
-    - Holding a digital asset in a wallet or account<br/>
-    - Transferring a digital asset from one wallet or account you own or control to another wallet or account that you own or control<br/>
-    - Purchasing digital assets using U.S. or other real currency, including through the use of electronic platforms such as PayPal and Venmo.<br/>
-    </blockquote>
+If all your crypto activity is covered by these three exceptions, then you can check "no":
 
-    For some reason, getting a gift isn't an exception but buying them is, which means I have to check yes thanks to a free gift from a company that doesn't even exist anymore.
+> - Holding a digital asset in a wallet or account
+> - Transferring a digital asset from one wallet or account you own or control to another wallet or account that you own or control
+> - Purchasing digital assets using U.S. or other real currency, including through the use of electronic platforms such as PayPal and Venmo.
 
-</details>
+For some reason, getting a gift isn't an exception but buying them is, which means I have to check yes thanks to a free gift from a company that doesn't even exist anymore.
+:::
