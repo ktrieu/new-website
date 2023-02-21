@@ -36,4 +36,10 @@
     @apply bg-secondary;
     @apply p-6;
   }
+
+  ol ol {
+    @apply ml-3;
+    @apply text-sm;
+    @apply leading-6;
+  }
 }
