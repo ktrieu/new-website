@@ -29,4 +29,11 @@
   a {
     @apply underline;
   }
+
+  details {
+    @apply border-primary;
+    @apply border-2;
+    @apply bg-secondary;
+    @apply p-6;
+  }
 }
