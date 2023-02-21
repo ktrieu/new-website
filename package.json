@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.0",
     "@tailwindcss/typography": "^0.5.8",
     "concurrently": "^7.5.0",
     "nunjucks": "^3.2.3",
