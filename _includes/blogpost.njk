@@ -7,6 +7,14 @@
             <h6 class="italic">{{ subtitle }}</h6>
             <p class="text-sm">{{ date | formatBlogDate }}</p>
         </div>
+        {% if content | toc %}
+            <div class="mb-12">
+                <div class="border-primary border-2 bg-secondary w-fit p-6 italic">
+                    <p class="italic font-bold">Contents</p>
+                    {{ content | toc | safe }}
+                </div>
+            </div>
+        {% endif %}
         <div class="prose leading-relaxed">
             {{ content | safe }}
         </div>

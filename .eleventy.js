@@ -1,5 +1,8 @@
 const fs = require("fs");
 
+const markdownItAnchor = require("markdown-it-anchor");
+const tocPlugin = require("eleventy-plugin-toc");
+
 const NOT_FOUND_PATH = "_site/404/index.html";
 
 const notFoundMiddleware = (req, res) => {
@@ -35,4 +38,14 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addNunjucksFilter("formatBlogDate", formatBlogDate);
+
+  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(markdownItAnchor));
+
+  eleventyConfig.addPlugin(tocPlugin, {
+    tags: ["h1", "h2", "h3", "h4"],
+    wrapper: "nav",
+    wrapperClass: "toc",
+    ul: false,
+    flat: false,
+  });
 };
