@@ -21,7 +21,7 @@ Finally, **I am not a lawyer or an accountant.** There may be mistakes in here. 
 
 ## Notes
 
-A lot of tax advice on the Internet is very "trust me on this one, dude". That is, they just tell you to do things without really pointing to a source that backs it up or explaining why. I don't like that, so wherever possible, I will be explaining _why_ you need to do something, with links back to the IRS/CRA websites. For flow, these will be hidden away in sections:
+A lot of tax advice on the Internet is very "trust me on this one, dude". That is, they just tell you to do things without really pointing to a source that backs it up or explaining why. I don't like that, so wherever possible, I will be explaining _why_ you need to do something, with links back to the IRS/CRA websites. If these get too detailed, they'll be hidden away in sections:
 
 <details>
     <summary>Like this.</summary>
@@ -61,6 +61,81 @@ Before we get started, we should cover what you are to America. For tax purposes
 
     doesn't count under this rule. If the only time you've spent in the US was under a J-1 visa for co-op, the substantial presence test does not apply to you.
 
-    Most UWaterloo students will fail both these tests.
+</details>
+
+Nonresident aliens get a special version of the standard 1040 form, [the 1040NR](https://www.irs.gov/forms-pubs/about-form-1040-nr). You can fill out [a PDF version](https://www.irs.gov/pub/irs-pdf/f1040nr.pdf), as well as view the frankly monstrous [instructions.](https://www.irs.gov/instructions/i1040nr) If you're planning on reading those instructions yourself, you will also need the instructions for the OG [Form 1040.](https://www.irs.gov/instructions/i1040gi) The 1040NR instructions are merely an add-on to those.
+
+<details>
+    <summary>Why this form?</summary>
+
+    The 1040NR page above mentions that
+
+    <blockquote>
+    you may need to file Form 1040-NR if you... were a nonresident alien engaged in a trade or business in the United States.
+    </blockquote>
+
+    The [instructions](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100057473) go into more detail:
+
+    <blockquote>
+    You must file Form 1040-NR if any of the following conditions apply to you.<br/>
+        1. You were a nonresident alien engaged in a trade or business in the United States during 2022.
+    </blockquote>
+
+    Being "engaged in a trade or business" is a surprisingly tricky concept to define, but according to the IRS's explainer on Effectively Connected Income:
+
+    <blockquote>
+    You are considered to be engaged in a trade or business in the United States if you are temporarily present in the United States as a nonimmigrant on an "F," "J," "M," or "Q" visa.
+    </blockquote>
+
+    That's you.
+
+</details>
+
+We'll go through each box on the form step-by-step.
+
+### For the year Jan. 1 - Dec 31. 2022
+
+Ignore this line. This is for [fiscal year filers](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000107557) to specify that their tax year is different from a calendar year. You almost certainly don't want to do this.
+
+### Filing Status
+
+You probably already have an answer to this one. If you're not married, check "Single". You'd probably know if you were an estate or a trust, so leave those unchecked.
+
+### Name/Address
+
+This is your current address. I was originally confused about whether this referred to the address you lived at in the United States, but the fact that they have boxes for "foreign country name" and others indicate that they probably want your current address in Canada.
+
+### Your identifying number
+
+[The instructions](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100061734) give you three options here, including an SSN. If you worked for a company on a J-1 visa, you almost certainly have one, and should use it.
+
+### Digital Assets
+
+They're looking to see if you did anything with crypto. If you did anything other than hold crypto or buy it with US dollars, you have to check "yes". Unfortunately I received one (1) free NFT as part of a promotion from FTX (which counts!), so I had to check yes.
+
+If you sold, which I never did, you also have to report this as capital gains on some secondary forms [the 1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000111717) will tell you about. Have fun with that.
+
+<details>
+    <summary>Do I have to check yes?</summary>
+
+    This is all from the [Form 1040 instructions.](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000111717)
+
+    Digital assets are:
+    <blockquote>
+    any digital representations of value that are recorded on a cryptographically secured distributed ledger or any similar technology. For example, digital assets include non-fungible tokens (NFTs) and virtual currencies, such as cryptocurrencies and stablecoins.
+    </blockquote>
+
+    I'm not a crypto expert but this seems to include everything you might think of as "crypto", including Bitcoin, Ethereum, NFTs, and various shitcoins.
+
+    They want you to check "yes" if you received digital assets as payment, for mining, or as a gift, or if you sold them. Selling, by the way, is a pretty broad definition, including selling for money, for things of value like property, and for other digital assets.
+
+    If all your crypto activity is covered by these three exceptions, then you can check "no":
+    <blockquote>
+    - Holding a digital asset in a wallet or account<br/>
+    - Transferring a digital asset from one wallet or account you own or control to another wallet or account that you own or control<br/>
+    - Purchasing digital assets using U.S. or other real currency, including through the use of electronic platforms such as PayPal and Venmo.<br/>
+    </blockquote>
+
+    For some reason, getting a gift isn't an exception but buying them is, which means I have to check yes thanks to a free gift from a company that doesn't even exist anymore.
 
 </details>
