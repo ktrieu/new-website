@@ -79,7 +79,7 @@ Ignore this line. This is for [fiscal year filers](https://www.irs.gov/instructi
 
 ### Filing Status
 
-You probably already have an answer to this one. If you're not married, check "Single". You'd probably know if you were an estate or a trust, so leave those unchecked.
+You probably already have an answer to this one. If you're not married, check "Single". You'd know if you were an estate or a trust, so leave those unchecked.
 
 ### Name/Address
 
@@ -104,7 +104,7 @@ Digital assets are:
 
 I'm not a crypto expert but this seems to include everything you might think of as "crypto", including Bitcoin, Ethereum, NFTs, and various shitcoins.
 
-They want you to check "yes" if you received digital assets as payment, for mining, or as a gift, or if you sold them. Selling, by the way, is a pretty broad definition, including selling for money, for things of value like property, and for other digital assets.
+They want you to check "yes" if you received digital assets as payment, for mining, as a gift, or if you sold them. Selling, by the way, is a pretty broad definition, including selling for money, for things of value like property, and for other digital assets.
 
 If all your crypto activity is covered by these three exceptions, then you can check "no":
 
@@ -199,6 +199,6 @@ And, in case you're curious, this [shady-looking IRS tax tutorial](https://apps.
 
 ### Lines 3a and 3b
 
-This is for dividends from investing. The [IRS says](https://www.irs.gov/publications/p519#en_US_2022_publink1000222213) "dividend income received from domestic corporations is US source income", while "income from foreign corporations is foreign source income". I did all my investing in Canadian stocks (and therefore Canadian corporations) so I get a skip again. If you invested in US stocks during your term, you'd probably have to declare the dividends here. Your broker of choice will have tax forms for you.
+This is for dividends from investing. The [IRS says](https://www.irs.gov/publications/p519#en_US_2022_publink1000222213) "dividend income received from domestic corporations is US source income", while "income from foreign corporations is foreign source income". I did all my investing in Canadian stocks (and therefore Canadian corporations) so I get to skip again. If you invested in US stocks during your term, you'd probably have to declare the dividends here. Your broker of choice will have tax forms for you. Again, I won't go into this since it doesn't apply to me.
 
 ### Lines 4a and 4b
