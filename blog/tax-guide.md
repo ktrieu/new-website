@@ -17,7 +17,7 @@ We live in a modern, specialized economy, which means it is much easier to Pay a
 
 Also, this guide is written from my perspective, i.e., a Canadian citizen from the University of Waterloo, who went to the US for only four months on a J-1 visa. **If this does not exactly fit your situation, this may not work for you.**
 
-Finally, **I am not a lawyer or an accountant.** There may be mistakes in here. However, if there _are_ mistakes in here, you can be comforted by the fact that they'll probably be affecting me too.
+Finally, **I am not a lawyer or an accountant.** This is just my attempt at understanding some complex regulations as a layman. There may be mistakes in here, and so you follow this advice at your own risk. However, if there _are_ mistakes in here, you can be comforted by the fact that they'll probably be affecting me too.
 
 ## Notes
 
