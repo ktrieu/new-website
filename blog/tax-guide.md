@@ -23,10 +23,9 @@ Finally, **I am not a lawyer or an accountant.** This is just my attempt at unde
 
 A lot of tax advice on the Internet is very "trust me on this one, dude". That is, they just tell you to do things without really pointing to a source that backs it up or explaining why. I don't like that, so wherever possible, I will be explaining _why_ you need to do something, with links back to the IRS/CRA websites. If these get too detailed, they'll be hidden away in sections:
 
-<details>
-    <summary>Like this.</summary>
-    Hello there.
-</details>
+::: details Like this.
+Hello there.
+:::
 
 ## The Game Plan
 
