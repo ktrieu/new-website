@@ -197,3 +197,9 @@ And, in case you're curious, this [shady-looking IRS tax tutorial](https://apps.
 > All interest income is taxable unless specifically excluded... Tax-exempt interest income is earned from bonds issued by states, cities, or counties and the District of Columbia.
 
 :::
+
+### Lines 3a and 3b
+
+This is for dividends from investing. The [IRS says](https://www.irs.gov/publications/p519#en_US_2022_publink1000222213) "dividend income received from domestic corporations is US source income", while "income from foreign corporations is foreign source income". I did all my investing in Canadian stocks (and therefore Canadian corporations) so I get a skip again. If you invested in US stocks during your term, you'd probably have to declare the dividends here. Your broker of choice will have tax forms for you.
+
+### Lines 4a and 4b
