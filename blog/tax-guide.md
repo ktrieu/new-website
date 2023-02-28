@@ -202,3 +202,41 @@ And, in case you're curious, this [shady-looking IRS tax tutorial](https://apps.
 This is for dividends from investing. The [IRS says](https://www.irs.gov/publications/p519#en_US_2022_publink1000222213) "dividend income received from domestic corporations is US source income", while "income from foreign corporations is foreign source income". I did all my investing in Canadian stocks (and therefore Canadian corporations) so I get to skip again. If you invested in US stocks during your term, you'd probably have to declare the dividends here. Your broker of choice will have tax forms for you. Again, I won't go into this since it doesn't apply to me.
 
 ### Lines 4a and 4b
+
+An [IRA](https://www.investopedia.com/terms/i/ira.asp) is an Individual Retirement account, and an IRA distribution is a withdrawal. You're probably not retired, and you'd know if you withdrew anything.
+
+### Lines 5a and 5b
+
+The meaning of pension here is the same as usual. An [annuity](https://www.investopedia.com/terms/a/annuity.asp) is a contract where you pay in advance and they agree to pay you in installments later. Again, you're probably too young and you'd know if you had one of these.
+
+### Line 6
+
+Who knows what machinations the IRS has in store for the future?
+
+### Line 7
+
+As per the [1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink100020245), "if you sold a capital asset, such as a stock or bond, you must complete and attach Form 8949 and Schedule D".
+
+But, again, [this only applies](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100048417) for sales "connected with a (US) trade or business". I only did Canadian investing, so I get another skip. Capital gains are (apparently) notoriously difficult to deal with, so sorry for not going into it.
+
+### Line 8
+
+[Schedule 1](hhttps://www.irs.gov/instructions/i1040gi#en_US_2022_publink10002564) is for:
+
+> additional income, such as business or farm income or loss, unemployment compensation, prize or award money, or gambling winnings or any deductions to claim, such as the student loan interest deduction, self-employment tax, or educator expenses.
+
+I won't be going into any of these here, since most of these are really specific things you'd know if you had. If you have any exotic income sources, take a look. And don't forget the list of [1040NR exceptions!](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100048531).
+
+Also, before you get too excited, the "student loan interest deduction" covers loans from US schools only.
+
+::: details That sucks. Really?
+[Publication 509](https://www.irs.gov/publications/p970#en_US_2022_publink1000178234) gives the details on what counts. It says that a qualified student loan is "a loan you took out solely to pay qualified education expenses".
+
+[Qualified education expenses](https://www.irs.gov/publications/p970#en_US_2022_publink1000178246) are the total costs of attending an eligible education institution".
+
+Finally, an "eligible educational institution... must be eligible to participate in a student aid program administered by the U.S. Department of Education". Sorry, deduct your OSAP on your Canadian taxes.
+:::
+
+### Line 9
+
+Do some adding, and that's it for effectively connected income. Congratulations for reading this far.
