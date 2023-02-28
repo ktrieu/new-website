@@ -73,23 +73,25 @@ That's you.
 
 We'll go through each box on the form step-by-step.
 
-### For the year Jan. 1 - Dec 31. 2022
+### Basics
+
+#### For the year Jan. 1 - Dec 31. 2022
 
 Ignore this line. This is for [fiscal year filers](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink1000107557) to specify that their tax year is different from a calendar year. You almost certainly don't want to do this.
 
-### Filing Status
+#### Filing Status
 
 You probably already have an answer to this one. If you're not married, check "Single". You'd know if you were an estate or a trust, so leave those unchecked.
 
-### Name/Address
+#### Name/Address
 
 This is your current address. I was originally confused about whether this referred to the address you lived at in the United States, but the fact that they have boxes for "foreign country name" and others indicate that they probably want your current address in Canada.
 
-### Your identifying number
+#### Your identifying number
 
 [The instructions](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100061734) give you three options here, including an SSN. If you worked for a company on a J-1 visa, you almost certainly have one, and should use it.
 
-### Digital Assets
+#### Digital Assets
 
 They're looking to see if you did anything with crypto. If you did anything other than hold crypto or buy it with US dollars, you have to check "yes". Unfortunately I received one (1) free NFT as part of a promotion from FTX (which counts!), so I had to check yes.
 
@@ -115,13 +117,15 @@ If all your crypto activity is covered by these three exceptions, then you can c
 For some reason, getting a gift isn't an exception but buying them is, which means I have to check yes thanks to a free gift from a company that doesn't even exist anymore.
 :::
 
-### Dependents
+#### Dependents
 
 There's a huge amount of rules to determine who is and is not a dependent. If you want to read them, they're [here.](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink10004904)
 
 In broad strokes, unless you have a younger relative (or an older, poor one) that lived with you in the US, and that you financially supported, you shouldn't put down anything here.
 
-### Lines 1a through 1z
+### Income
+
+#### Lines 1a through 1z
 
 This is real Tax Hours now. Box 1a should be the number in box 1 on your W-2 (the American equivalent of the T4). Check your HR platform/email if you don't have one. The instructions warn you that this should be income _effectively connected with a US trade or business_. Any salary from an American business counts, but see below for a more detailed explanation.
 
@@ -173,7 +177,7 @@ The one exception is [this passage](<https://www.canada.ca/en/department-finance
 If you do fall under this, you need to complete a separate schedule OI form and to enter Line 1a as 0. Again, this doesn't apply to me, so I won't go into more detail. Read the instructions for more info.
 :::
 
-### Lines 2a and 2b
+#### Lines 2a and 2b
 
 This covers interest payments you may have received. Again they only want interest _effectively connected with a US trade or business_. The main case here is going to be taxable interest on US bank accounts. I just checked, and my account apparently never gave me any interest, so I get to skip this section.
 
@@ -197,29 +201,29 @@ And, in case you're curious, this [shady-looking IRS tax tutorial](https://apps.
 
 :::
 
-### Lines 3a and 3b
+#### Lines 3a and 3b
 
 This is for dividends from investing. The [IRS says](https://www.irs.gov/publications/p519#en_US_2022_publink1000222213) "dividend income received from domestic corporations is US source income", while "income from foreign corporations is foreign source income". I did all my investing in Canadian stocks (and therefore Canadian corporations) so I get to skip again. If you invested in US stocks during your term, you'd probably have to declare the dividends here. Your broker of choice will have tax forms for you. Again, I won't go into this since it doesn't apply to me.
 
-### Lines 4a and 4b
+#### Lines 4a and 4b
 
 An [IRA](https://www.investopedia.com/terms/i/ira.asp) is an Individual Retirement account, and an IRA distribution is a withdrawal. You're probably not retired, and you'd know if you withdrew anything.
 
-### Lines 5a and 5b
+#### Lines 5a and 5b
 
 The meaning of pension here is the same as usual. An [annuity](https://www.investopedia.com/terms/a/annuity.asp) is a contract where you pay in advance and they agree to pay you in installments later. Again, you're probably too young and you'd know if you had one of these.
 
-### Line 6
+#### Line 6
 
 Who knows what machinations the IRS has in store for the future?
 
-### Line 7
+#### Line 7
 
 As per the [1040 instructions](https://www.irs.gov/instructions/i1040gi#en_US_2022_publink100020245), "if you sold a capital asset, such as a stock or bond, you must complete and attach Form 8949 and Schedule D".
 
 But, again, [this only applies](https://www.irs.gov/instructions/i1040nr#en_US_2022_publink100048417) for sales "connected with a (US) trade or business". I only did Canadian investing, so I get another skip. Capital gains are (apparently) notoriously difficult to deal with, so sorry for not going into it.
 
-### Line 8
+#### Line 8
 
 [Schedule 1](hhttps://www.irs.gov/instructions/i1040gi#en_US_2022_publink10002564) is for:
 
@@ -237,6 +241,6 @@ Also, before you get too excited, the "student loan interest deduction" covers l
 Finally, an "eligible educational institution... must be eligible to participate in a student aid program administered by the U.S. Department of Education". Sorry, deduct your OSAP on your Canadian taxes.
 :::
 
-### Line 9
+#### Line 9
 
 Do some adding, and that's it for effectively connected income. Congratulations for reading this far.

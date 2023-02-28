@@ -63,7 +63,7 @@ module.exports = function (eleventyConfig) {
   );
 
   eleventyConfig.addPlugin(tocPlugin, {
-    tags: ["h1", "h2", "h3", "h4"],
+    tags: ["h1", "h2", "h3"],
     wrapper: "nav",
     wrapperClass: "toc",
     ul: false,
