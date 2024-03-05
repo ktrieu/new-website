@@ -84,7 +84,7 @@ error: language item required, but not found: `eh_personality`
   = help: you may be able to compile for a target that doesn't need `eh_personality`, specify a target with `--target` or in `.cargo/config`
 ```
 
-Makes sense - the default panic handler (print to console) also requires OS support, which we've removed with our `no_std` statement. We can put together our own by adding a function with the required signature and adding the `#[panic_handler] annotation to let Rust know about it.
+Makes sense - the default panic handler (printing the panic message to console) also requires OS support, which we've removed with our `no_std` statement. We can put together our own by adding a function with the required signature and adding the `#[panic_handler]` annotation to let Rust know about it.
 
 ```rust
 #[panic_handler]
