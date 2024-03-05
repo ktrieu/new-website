@@ -9,7 +9,7 @@ First, some introductory stuff. We’re going to be using Rust, because I like i
 
 The other bit of intro we need to cover is what exactly the “boot environment” I mentioned consists of.
 
-# UEFI
+## UEFI
 
 UEFI stands for Unified Extensible Firmware Interface, and it provides a standardized low-level interface for your bootloader to talk to the hardware. We’ll be using this to:
 
@@ -25,7 +25,7 @@ If that sounds like a lot of work, well it does to me too. Luckily, it’s been 
 
 A lot of tutorials for OS stuff out there mention the BIOS, which is sort of like an older version of UEFI (hugely oversimplified). Like UEFI, the BIOS also offers a standardized mechanism to talk to your computer hardware. Unlike UEFI, it was invented two years before *Star Wars* came out, and requires four steps to even reach the 64-bit mode modern computers run on. UEFI drops you straight into it. UEFI is what every computer today is designed to support and is generally easier to work with. With that in mind, I’ll be sticking with UEFI today.
 
-# Project Setup
+## Starter Code
 
 With that out of the way, let’s setup our project. I’m going to assume anyone reading this knows Rust basics, so spin up a new Cargo project and add `uefi-rs` to your `Cargo.toml`.
 
