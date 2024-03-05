@@ -71,7 +71,7 @@ bench = false
 
 With that done, let's do a `cargo run` and see what happens. Will it work?
 
-## Running your program
+## Do panic
 
 No. 
 
@@ -127,7 +127,7 @@ target = "x86_64-unknown-uefi"
 
 Alright, now can we run it?
 
-## The Standard Library
+## The standard library
 
 No.
 
@@ -202,7 +202,7 @@ It’s ok, I wasn’t either when I was first doing this. (I use Windows Subsyst
 It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and copy it to `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
 </details>
 
-## Boot Image
+## Boot image
 
 Finally, how do we tell QEMU to boot into your program? A UEFI system will run whatever's at `/EFI/BOOT/BOOTx64.EFI` automatically on boot. QEMU lets you mount directories to the virtual machine, so we need to prepare a little boot volume. Make a new folder `bootimg` in your project directory and copy your executable into the right folder:
 
