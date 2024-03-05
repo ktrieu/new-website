@@ -5,7 +5,7 @@ date: 2024-03-05
 tags: secret
 layout: blogpost.njk
 ---
-First, some introductory stuff. We’re going to be using Rust, because I like it. I’ll leave it at that. The other bit of intro we need to cover is what exactly the “boot environment” I mentioned consists of.
+Some introductory stuff: We’re going to be using Rust, because I like it. I’ll leave it at that. The other bit of intro we need to cover is what exactly the “boot environment” I mentioned consists of.
 
 ## UEFI
 
@@ -17,19 +17,19 @@ UEFI stands for Unified Extensible Firmware Interface, and it provides a standar
 
 The people (well, companies) who designed UEFI publish C files that allow you to call UEFI functions from C, but we’re using Rust. Since Rust can call C, “all” you have to do is painstakingly wrap the C function calls in Rust code and convert the API surface to be idiomatic Rust. 
 
-If that sounds like a lot of work, well it does to me too. Luckily, it’s been done already by the good folks who make the [uefi](https://github.com/rust-osdev/uefi-rs) library for Rust. That’ll be the main library we rely on today.
+If that sounds like a lot of work, well, it does to me too. Luckily, it’s been done already by the good folks who make the [uefi-rs](https://github.com/rust-osdev/uefi-rs) library for Rust. That’ll be the main library we rely on today.
 
 <details>
 <summary>What about BIOS?</summary>
 
-A lot of tutorials for OS stuff out there mention the BIOS, which is sort of like an older version of UEFI (hugely oversimplified). Like UEFI, the BIOS also offers a standardized mechanism to talk to your computer hardware. Unlike UEFI, it was invented two years before *Star Wars* came out, and requires four steps to even reach the 64-bit mode modern computers run on. UEFI drops you straight into it. UEFI is what every computer today is designed to support and is generally easier to work with. With that in mind, I’ll be sticking with UEFI today.
+A lot of OS tutorials out there use the BIOS, which is sort of like an older version of UEFI (hugely oversimplified). Like UEFI, the BIOS also offers a standardized mechanism to talk to your computer hardware. Unlike UEFI, it was invented two years before *Star Wars* came out, and requires four steps to even reach the 64-bit mode modern computers run on. UEFI drops you straight into it and is what every computer today is designed to support. With that in mind, I’ll be sticking with UEFI today.
 </details>
 
-## Starter Code
+## Starter code
 
 With that out of the way, let’s setup our project. I’m going to assume anyone reading this knows Rust basics, so spin up a new Cargo project and add `uefi-rs` to your `Cargo.toml`.
 
-Next, let’s write some simple code. Rust’s `main` function is designed to be called by your host OS, which won’t work since we’re writing a bootloader. UEFI has it’s own standard for the main function, so we’ll have to write it the way it wants (well, the way `uefi-rs` translates that standard into Rust). 
+Next, let’s write the starter code. Rust’s `main` function is designed to be called by your host OS, which won’t work since we’ll be booting directly into our program. Instead, `uefi-rs` has its own standard for what the main function looks like, which it will transform to be compatible with UEFI's C API.
 
 Your `main.rs` file will look like this:
 
@@ -48,20 +48,17 @@ fn uefi_main(_handle: Handle, mut system_table: SystemTable<Boot>) -> Status {
 }
 
 ```
+I'll explain line by line:
 
-That `no_std` at the top tells Rust that it can’t use the default standard library, since that depends on an OS, which we don’t have. The `no_main` does something similar, telling Rust that there isn’t going to be a default `main` function.
+`#![no_std]` tells Rust that it can’t use the default standard library, since that depends on an OS, which we don’t have. `#![no_main]` does something similar, telling Rust that there isn’t going to be a default `main` function.
 
 The UEFI main function takes two arguments: `_handle` is the UEFI handle of the “loaded image”, i.e., your program. `uefi-rs` uses it, but you won’t need it yourself.
 
-The `system_table` gives you access to what UEFI calls services, which let you do things. So, we grab the console output service using `stdout()` , write a fun message, and unwrap the result.
+The `system_table` gives you access to what UEFI calls services, which let you interact with the computer. For now, we'll just grab the console output service using `stdout()` , write a fun message, and unwrap the result. After printing, we `loop {}` so you can see the output instead of exiting immediately.
 
-After printing, we just `loop {}` so you can see the output instead of stalling immediately.
+Finally, that `#[entry]` attribute at the top of `uefi_main` marks your function as *the* main function so `uefi-rs` knows where it is. This allows it to transform it like we mentioned above, and also check if you’ve declared it properly.
 
-Finally, that `#[entry]` attribute at the top of `uefi_main` marks your function as *the* main function so `uefi-rs` knows where it is. This lets it do some setup work for you, and also check if you’ve declared it properly.
-
-That `no_std` will cause your VS Code Rust extension (if you use it) to complain about a missing “test” crate. Disable tests/benchmarks in your `Cargo.toml` to fix it. 
-
-Add this to the top of the file:
+That `no_std` will cause your VS Code Rust extension (if you use it) to complain about a missing “test” crate. Disable tests/benchmarks in your `Cargo.toml` to fix it. To do that, add this to the top of the file:
 
 ```rust
 [[bin]]
@@ -71,9 +68,11 @@ test = false
 bench = false
 ```
 
-## Running It
+With that done, let's do a `cargo run` and see what happens. Will it work?
 
-Ok, nice, let’s run it. One `cargo run` later: 
+## Running your program
+
+No. 
 
 ```rust
 error: `#[panic_handler]` function required, but not found
@@ -93,9 +92,7 @@ fn panic(info: &PanicInfo) -> ! {
 }
 ```
 
-There’s really nothing meaningful we can do here since we don’t even have access to the `system_table` to log a message. Such is low-level programming. I promise we’ll have something better here soon.
-
-If you actually paste that into your file, though, you’ll get the following error:
+There’s really nothing meaningful we can do here since we don’t even have access to the `system_table` to log a message. Such is low-level programming. I promise we’ll have something better here soon. If you actually paste that into your file, though, you’ll get the following error:
 
 ```rust
 found duplicate lang item `panic_impl`
@@ -104,13 +101,13 @@ first definition in `std` loaded from <your home dir>/.rustup/toolchains/stable-
 second definition in the local crate (`loader_test`)
 ```
 
-Our panic handler is colliding with the default implementation provided by Rust for Linux systems. Of course, we’re not even writing code for a Linux system. Let’s give Rust the good news.
+Our panic handler is colliding with the default implementation provided by Rust for Linux systems. Of course, we’re not even writing code for a Linux system. Let's make sure Rust knows.
 
 ## Targets
 
-The idea of “what system am I compiling for” is called a *target* in Rust, and it’s usually determined by what system you’re on at the time. If you use a target that isn’t the current system, it’s called *cross-compiling*. This comes up pretty often in OS dev, since you’re (hopefully) writing your code on a computer that already has an operating system.
+The idea of “what system am I compiling for” is called a *target* in Rust, and it’s usually determined by what system you’re running the compiler on. If you use a target that isn’t the current system, it’s called *cross-compiling*. This comes up pretty often in OS dev, since you’re (hopefully) writing your code on a computer that already has an operating system.
 
-So, we have to tell Rust that we’re compiling for a UEFI target. Luckily, there’s one built in called `x86_64-unknown-uefi`. You can tell Rust to use it via adding a flag to your `cargo` commands:
+We have to tell Rust that we’re compiling for a UEFI target. Luckily, there’s one built in called `x86_64-unknown-uefi`. You can tell Rust to use it via adding a flag to your `cargo` commands:
 
 ```bash
 cargo run --target x86_64-unknown-uefi
@@ -125,7 +122,7 @@ Instead, you can set a default target for your crate. Create `.cargo/config.toml
 target = "x86_64-unknown-uefi"
 ```
 
-(Using this method will be surprisingly annoying, but it’s the only way to do it. Consider this foreshadowing.)
+(Using this method will be kind of annoying later, but it’s the only way to do it. Consider this foreshadowing.)
 
 Alright, now can we run it?
 
@@ -142,7 +139,7 @@ error[E0531]: cannot find tuple struct or tuple variant `Ok` in this scope
 (repeat 8 million times)
 ```
 
-We’ve had an oversight: we told Rust there’s no standard library, but never provided anything to replace it. Some parts we can’t replace - file I/O, for example, requires OS support and so we can’t replicate it here. But that error is complaining about `Ok()` which is kind of universal, right? The platonic idea of being OK. Can we tell Rust we only want those parts?
+We’ve had an oversight: we told Rust there’s no standard library, but never provided anything to replace it. Some parts we can’t replace - file I/O, for example, requires OS support and so we can’t replicate it here. But that error is complaining about `Ok()` which is kind of universal, right? The platonic idea of being OK requires no OS support. Can we tell Rust we only want those parts?
 
 We can, it turns out. For that, we need to jump back into that `.cargo/config.toml` file and add this:
 
@@ -152,9 +149,9 @@ build-std = ["core", "compiler_builtins"]
 build-std-features = ["compiler-builtins-mem"]
 ```
 
-These lines tell Rust to build the standard library from source when building your project, including only the basics we need and can support. The line about `compiler-builtins-mem` tells Rust to use its built-in copies of functions like `memcpy` and friends. This needs to be explicitly enabled, because most platforms have their own versions which are better. 
+These lines tell Rust to build the standard library from source for your target, including only the basics we need and can support. The line about `compiler-builtins-mem` tells Rust to use its built-in copies of functions like `memcpy` and friends. This needs to be explicitly enabled, because most platforms have their own versions which are better. Again, in UEFI land, we get nothing for free.
 
-As the header says, this is unstable and not in Rust’s stable branch, so drop a `rust-toolchain.toml` in the root of your crate and put this in it:
+As the header says, this is unstable and requires we use Rust's nightly branch, so drop a `rust-toolchain.toml` in the root of your crate and put this in it:
 
 ```bash
 [toolchain]
@@ -171,7 +168,7 @@ No.
 target/x86_64-unknown-uefi/debug/loader-test.efi: Invalid argument
 ```
 
-There is one last thing we’ve neglected: We’re supposed to boot into this program, and our computer is already on. Of course it won’t work.
+There is one last thing we’ve neglected: We’re supposed to boot into this program, and our computer is already on. Of course it won’t work. Unfortunately, `cargo run` won't be able to run our program at all.
 
 You could, actually, stick your built executable on a USB drive and configure your computer to boot from it. I wouldn’t recommend it because:
 
@@ -185,9 +182,9 @@ Instead, we’re going to use a VM, which will pretend to be a UEFI-enabled comp
 
 There are a few choices for this, but we’ll be using QEMU. This post is already getting pretty long, so I’ll let you figure out how to [install it](https://www.qemu.org/download/) on your system of choice. Come back once you’re done.
 
-Ok, now that QEMU is installed, we need to get it UEFI compatible. UEFI itself needs code on the firmware side to work, for example, the code you (eventually) call when you call `.stdout().write()`. If you buy a real computer, the manufacturer writes that code.
+...
 
-For QEMU, there is OVMF, an open-source implementation of the UEFI standard. You’ll need to get an image of the UEFI code (a `.fd` file) and then tell QEMU to use it.
+Ok, now that QEMU is installed, we need to load it with a UEFI implementation, that is, the code that implements the UEFI APIs we call. If you buy a real computer, this would be provided as firmware by the manufacturer of your motherboard. For QEMU, there is OVMF, an open-source implementation of the UEFI standard. You’ll need to get an image of the UEFI code (a `.fd` file) and then tell QEMU to use it.
 
 On Linux, you can get OVMF via your package manager:
 
@@ -199,14 +196,14 @@ cp /usr/share/ovmf/OVMF.fd <your project dir>/ovmf/OVMF.fd
 <details>
 <summary>I’m not on Linux 😟</summary>
 
-It’s ok, I wasn’t either when I was first doing this. (I use WSL2 now). If you don’t have access to a package manager there are pre-built binaries [here](https://www.kraxel.org/repos/). They’re old, but it doesn’t really matter for this kind of thing. It’s frankly mystifying exactly which file you need, so just download [this one.](https://www.kraxel.org/repos/jenkins/edk2/edk2.git-ovmf-x64-0-20220719.209.gf0064ac3af.EOL.no.nore.updates.noarch.rpm) 
+It’s ok, I wasn’t either when I was first doing this. (I use Windows Subsystem for Linux now, which is sort of like Linux but middle click doesn't paste.) If you don’t have access to a package manager there are pre-built binaries [here](https://www.kraxel.org/repos/). They’re old, but it doesn’t really matter for what we're doing. It’s frankly mystifying exactly which file you need, so just download [this one.](https://www.kraxel.org/repos/jenkins/edk2/edk2.git-ovmf-x64-0-20220719.209.gf0064ac3af.EOL.no.nore.updates.noarch.rpm) 
 
-It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and put it under `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
+It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and copy it to `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
 </details>
 
 ### Boot Image
 
-Finally, how do we tell QEMU to boot into your program? By default, a UEFI system will run `/EFI/BOOT/BOOTx64.EFI` automatically on boot. QEMU lets you mount directories to the virtual machine, so we need to prepare a little boot volume. Make a new folder `bootimg` in your project directory and copy your executable into the right folder:
+Finally, how do we tell QEMU to boot into your program? A UEFI system will run whatever's at `/EFI/BOOT/BOOTx64.EFI` automatically on boot. QEMU lets you mount directories to the virtual machine, so we need to prepare a little boot volume. Make a new folder `bootimg` in your project directory and copy your executable into the right folder:
 
 ```bash
 - <your project folder>
