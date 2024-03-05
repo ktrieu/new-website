@@ -4,6 +4,7 @@ subtitle: Bootloader Pt. 1
 date: 2024-03-05
 tags: secret
 layout: blogpost.njk
+enableToc: true
 ---
 Some introductory stuff: We’re going to be using Rust, because I like it. I’ll leave it at that. The other bit of intro we need to cover is what exactly the “boot environment” I mentioned consists of.
 
@@ -178,7 +179,7 @@ You could, actually, stick your built executable on a USB drive and configure yo
 
 Instead, we’re going to use a VM, which will pretend to be a UEFI-enabled computer while running sandboxed in a host OS. This fixes all our problems. 
 
-### QEMU
+## QEMU
 
 There are a few choices for this, but we’ll be using QEMU. This post is already getting pretty long, so I’ll let you figure out how to [install it](https://www.qemu.org/download/) on your system of choice. Come back once you’re done.
 
@@ -201,7 +202,7 @@ It’s ok, I wasn’t either when I was first doing this. (I use Windows Subsyst
 It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and copy it to `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
 </details>
 
-### Boot Image
+## Boot Image
 
 Finally, how do we tell QEMU to boot into your program? A UEFI system will run whatever's at `/EFI/BOOT/BOOTx64.EFI` automatically on boot. QEMU lets you mount directories to the virtual machine, so we need to prepare a little boot volume. Make a new folder `bootimg` in your project directory and copy your executable into the right folder:
 
