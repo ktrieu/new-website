@@ -19,9 +19,11 @@ The people (well, companies) who designed UEFI publish C files that allow you to
 
 If that sounds like a lot of work, well it does to me too. Luckily, it’s been done already by the good folks who make the [uefi](https://github.com/rust-osdev/uefi-rs) library for Rust. That’ll be the main library we rely on today.
 
-### What about BIOS?
+<details>
+<summary>What about BIOS?</summary>
 
 A lot of tutorials for OS stuff out there mention the BIOS, which is sort of like an older version of UEFI (hugely oversimplified). Like UEFI, the BIOS also offers a standardized mechanism to talk to your computer hardware. Unlike UEFI, it was invented two years before *Star Wars* came out, and requires four steps to even reach the 64-bit mode modern computers run on. UEFI drops you straight into it. UEFI is what every computer today is designed to support and is generally easier to work with. With that in mind, I’ll be sticking with UEFI today.
+</details>
 
 ## Starter Code
 
@@ -194,11 +196,13 @@ apt install ovmf
 cp /usr/share/ovmf/OVMF.fd <your project dir>/ovmf/OVMF.fd
 ```
 
-### I’m not on Linux 😟
+<details>
+<summary>I’m not on Linux 😟</summary>
 
 It’s ok, I wasn’t either when I was first doing this. (I use WSL2 now). If you don’t have access to a package manager there are pre-built binaries [here](https://www.kraxel.org/repos/). They’re old, but it doesn’t really matter for this kind of thing. It’s frankly mystifying exactly which file you need, so just download [this one.](https://www.kraxel.org/repos/jenkins/edk2/edk2.git-ovmf-x64-0-20220719.209.gf0064ac3af.EOL.no.nore.updates.noarch.rpm) 
 
 It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and put it under `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
+</details>
 
 ### Boot Image
 
@@ -218,7 +222,7 @@ And now at long last you can run QEMU with the right arguments, passing both the
 qemu-system-x86_64 --bios ovmf/OVMF.fd -drive file=fat:rw:bootimg/,format=raw
 ```
 
-![Untitled](/static/blog/bootloader/part-1/success.png)
+![Success!](/static/blog/bootloader/part-1/success.png)
 
 Yeah, there’s an error message, but we did it!
 
