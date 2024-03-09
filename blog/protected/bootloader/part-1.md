@@ -6,7 +6,7 @@ tags: secret
 layout: blogpost.njk
 enableToc: true
 ---
-Some introductory stuff: We’re going to be using Rust, because I like it. I’ll leave it at that. The other bit of intro we need to cover is what exactly the “boot environment” I mentioned consists of.
+So, what exactly is the “boot environment” I mentioned in the intro?
 
 ## UEFI
 
