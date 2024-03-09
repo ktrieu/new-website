@@ -28,7 +28,7 @@ A lot of OS tutorials out there use the BIOS, which is sort of like an older ver
 
 ## Starter code
 
-With that out of the way, let’s setup our project. I’m going to assume anyone reading this knows Rust basics, so spin up a new Cargo project and add `uefi-rs` to your `Cargo.toml`.
+With that out of the way, let’s setup our project. I’m going to assume anyone reading this knows Rust basics, so spin up a new Cargo binary project and add `uefi-rs` to your `Cargo.toml`.
 
 Next, let’s write the starter code. Rust’s `main` function is designed to be called by your host OS, which won’t work since we’ll be booting directly into our program. Instead, `uefi-rs` has its own standard for what the main function looks like, which it will transform to be compatible with UEFI's C API.
 
@@ -53,13 +53,13 @@ I'll explain line by line:
 
 `#![no_std]` tells Rust that it can’t use the default standard library, since that depends on an OS, which we don’t have. `#![no_main]` does something similar, telling Rust that there isn’t going to be a default `main` function.
 
+The `#[entry]` attribute at the top of `uefi_main` marks your function as *the* main function so `uefi-rs` knows where it is. This allows it to transform it like we mentioned above, and also check if you’ve declared it properly.
+
 The UEFI main function takes two arguments: `_handle` is the UEFI handle of the “loaded image”, i.e., your program. `uefi-rs` uses it, but you won’t need it yourself.
 
 The `system_table` gives you access to what UEFI calls services, which let you interact with the computer. For now, we'll just grab the console output service using `stdout()` , write a fun message, and unwrap the result. After printing, we `loop {}` so you can see the output instead of exiting immediately.
 
-Finally, that `#[entry]` attribute at the top of `uefi_main` marks your function as *the* main function so `uefi-rs` knows where it is. This allows it to transform it like we mentioned above, and also check if you’ve declared it properly.
-
-That `no_std` will cause your VS Code Rust extension (if you use it) to complain about a missing “test” crate. Disable tests/benchmarks in your `Cargo.toml` to fix it. To do that, add this to the top of the file:
+One more thing: that `no_std` will cause your VS Code Rust extension (if you use it) to complain about a missing “test” crate. Disable tests/benchmarks in your `Cargo.toml` to fix it. To do that, add this to the top of the file:
 
 ```rust
 [[bin]]
@@ -102,7 +102,7 @@ first definition in `std` loaded from <your home dir>/.rustup/toolchains/stable-
 second definition in the local crate (`loader_test`)
 ```
 
-Our panic handler is colliding with the default implementation provided by Rust for Linux systems. Of course, we’re not even writing code for a Linux system. Let's make sure Rust knows.
+Our panic handler is colliding with the default implementation provided by Rust for Linux systems. Of course, we’re not even writing code for a Linux system. Let's make sure Rust knows about that.
 
 ## Targets
 
@@ -114,7 +114,7 @@ We have to tell Rust that we’re compiling for a UEFI target. Luckily, there’
 cargo run --target x86_64-unknown-uefi
 ```
 
-But, this is annoying to type and your IDE is going to complain about the `panic_handler` anyway, since *it* doesn’t know you’re going to be typing that.
+But, this is annoying to type and your IDE is going to complain about the `panic_handler` anyway, since *it* doesn’t know you’re going to be adding that argument.
 
 Instead, you can set a default target for your crate. Create `.cargo/config.toml` in your crate’s root directory and put this in it:
 
@@ -123,7 +123,7 @@ Instead, you can set a default target for your crate. Create `.cargo/config.toml
 target = "x86_64-unknown-uefi"
 ```
 
-(Using this method will be kind of annoying later, but it’s the only way to do it. Consider this foreshadowing.)
+(Using this method will cause us some annoying problems, but it’s the only way to do it. Consider this foreshadowing.)
 
 Alright, now can we run it?
 
@@ -150,7 +150,7 @@ build-std = ["core", "compiler_builtins"]
 build-std-features = ["compiler-builtins-mem"]
 ```
 
-These lines tell Rust to build the standard library from source for your target, including only the basics we need and can support. The line about `compiler-builtins-mem` tells Rust to use its built-in copies of functions like `memcpy` and friends. This needs to be explicitly enabled, because most platforms have their own versions which are better. Again, in UEFI land, we get nothing for free.
+These lines tell Rust to build the standard library from source for your target, including only the basics we need and can support. The line about `compiler-builtins-mem` tells Rust to use its built-in copies of functions like `memcpy` and friends. This needs to be explicitly enabled, because most platforms have their own versions which are better. Again, in UEFI land, we don't get much for free.
 
 As the header says, this is unstable and requires we use Rust's nightly branch, so drop a `rust-toolchain.toml` in the root of your crate and put this in it:
 
@@ -169,13 +169,13 @@ No.
 target/x86_64-unknown-uefi/debug/loader-test.efi: Invalid argument
 ```
 
-There is one last thing we’ve neglected: We’re supposed to boot into this program, and our computer is already on. Of course it won’t work. Unfortunately, `cargo run` won't be able to run our program at all.
+There is one last thing we’ve forgottena about: We’re supposed to boot into this program, and our computer is already on. Unfortunately, `cargo run` won't be able to run our program at all.
 
 You could, actually, stick your built executable on a USB drive and configure your computer to boot from it. I wouldn’t recommend it because:
 
 - Copying your code onto a boot drive and waiting for your computer to reboot after a code change will be horrible
 - Debugging on a computer that hasn’t even booted yet is horrible
-- You might mess up your computer maybe? I haven’t had this happen but my computer is pretty expensive. Best not to risk it.
+- You might mess up your computer (horrible). I haven’t had this happen but my computer is pretty expensive. Best not to risk it.
 
 Instead, we’re going to use a VM, which will pretend to be a UEFI-enabled computer while running sandboxed in a host OS. This fixes all our problems. 
 
@@ -197,9 +197,9 @@ cp /usr/share/ovmf/OVMF.fd <your project dir>/ovmf/OVMF.fd
 <details>
 <summary>I’m not on Linux 😟</summary>
 
-It’s ok, I wasn’t either when I was first doing this. (I use Windows Subsystem for Linux now, which is sort of like Linux but middle click doesn't paste.) If you don’t have access to a package manager there are pre-built binaries [here](https://www.kraxel.org/repos/). They’re old, but it doesn’t really matter for what we're doing. It’s frankly mystifying exactly which file you need, so just download [this one.](https://www.kraxel.org/repos/jenkins/edk2/edk2.git-ovmf-x64-0-20220719.209.gf0064ac3af.EOL.no.nore.updates.noarch.rpm) 
+It’s ok, I wasn’t either when I was first doing this. I use Windows Subsystem for Linux now, which has the good parts of Linux (development tools) without the bad parts (everything else). If you don’t have access to a package manager there are pre-built binaries [here](https://www.kraxel.org/repos/). They’re old, but it doesn’t really matter for what we're doing. It’s frankly mystifying exactly which file you need, so just download [this one.](https://www.kraxel.org/repos/jenkins/edk2/edk2.git-ovmf-x64-0-20220719.209.gf0064ac3af.EOL.no.nore.updates.noarch.rpm) 
 
-It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and copy it to `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
+It’s an `.rpm` so you’ll have to unpack it (7Zip works). Then, you want `/usr/share/edk2.git/ovmf-64/OVMF-pure-efi.fd` inside the archive. Take that file, and copy it to `/ovmf/OVMF.fd` in your project directory. Please rejoin the blog post in the next sub-heading.
 </details>
 
 ## Boot image
