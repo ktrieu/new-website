@@ -2,6 +2,7 @@ const fs = require("fs");
 
 const markdownItAnchor = require("markdown-it-anchor");
 const tocPlugin = require("eleventy-plugin-toc");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 const NOT_FOUND_PATH = "_site/404/index.html";
 
@@ -48,4 +49,6 @@ module.exports = function (eleventyConfig) {
     ul: false,
     flat: false,
   });
+
+  eleventyConfig.addPlugin(syntaxHighlight);
 };
