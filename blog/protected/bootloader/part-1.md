@@ -105,7 +105,13 @@ fn panic(info: &PanicInfo) -> ! {
 }
 ```
 
-There’s really nothing meaningful we can do here since we don’t even have access to the `system_table` to log a message. Such is low-level programming. I promise we’ll have something better here soon. If you actually paste that into your file, though, you’ll get the following error:
+There’s really nothing meaningful we can do here since we don’t even have access to the `system_table` to log a message. Such is low-level programming. I promise we’ll have something better here soon.
+
+Let's add that and try `cargo run` again. Will this work?
+
+## Targets
+
+No.
 
 ```rust
 found duplicate lang item `panic_impl`
@@ -114,9 +120,7 @@ first definition in `std` loaded from <your home dir>/.rustup/toolchains/stable-
 second definition in the local crate (`loader_test`)
 ```
 
-Our panic handler is colliding with the default implementation provided by Rust for Linux systems. Of course, we’re not even writing code for a Linux system. Let's make sure Rust knows about that.
-
-## Targets
+Our panic handler is colliding with the default implementation provided by Rust for Linux systems. Of course, we’re not even writing code for a Linux system.
 
 The idea of “what system am I compiling for” is called a _target_ in Rust, and it’s usually determined by what system you’re running the compiler on. If you use a target that isn’t the current system, it’s called _cross-compiling_. This comes up pretty often in OS dev, since you’re (hopefully) writing your code on a computer that already has an operating system.
 
