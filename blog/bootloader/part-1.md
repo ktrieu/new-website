@@ -1,13 +1,13 @@
 ---
 title: Setting up a UEFI project in Rust
 subtitle: Bootloader Pt. 1
-date: 2024-03-05
-tags: secret
+date: 2024-04-25
+tags: blogposts
 layout: blogpost.njk
 enableToc: true
 ---
 
-Last time, in the [introduction](/blog/protected/bootloaer/intro) I went over what a bootloader actually does: namely transitioning from the default environment provided at boot time, to an environment suited for an operating system kernel to run on.
+Last time, in the [introduction](/blog/bootloader/intro) I went over what a bootloader actually does: namely transitioning from the default environment provided at boot time, to an environment suited for an operating system kernel to run on.
 
 In this post, we'll go deeper into what that default boot environment is like, and also get some code running.
 

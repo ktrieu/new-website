@@ -1,8 +1,8 @@
 ---
 title: Writing a bootloader in Rust
 subtitle: Bootloader Intro
-date: 2024-03-09
-tags: secret
+date: 2024-04-25
+tags: blogposts
 layout: blogpost.njk
 enableToc: true
 ---
@@ -42,4 +42,4 @@ My counterpoints:
 
 You can guess which side won the argument.
 
-That's about it. With the introduction out of the way, I'll see you in [part 1](/blog/protected/bootloader/part-1).
+That's about it. With the introduction out of the way, I'll see you in [part 1](/blog/bootloader/part-1).
