@@ -2,7 +2,7 @@
 title: Statement of Purpose
 subtitle: Is this pretentious? Yeah, probably.
 date: 2022-11-10
-tags: blogposts
+tags: meta
 layout: blogpost.njk
 ---
 

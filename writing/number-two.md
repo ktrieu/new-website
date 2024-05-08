@@ -2,7 +2,7 @@
 title: The Second One
 subtitle: I needed to test something.
 date: 2022-11-11
-tags: blogposts
+tags: meta
 layout: blogpost.njk
 ---
 

@@ -2,7 +2,7 @@
 title: Setting up a UEFI project in Rust
 subtitle: Bootloader Pt. 1
 date: 2024-04-25
-tags: blogposts
+tags: bootloader
 layout: blogpost.njk
 enableToc: true
 ---

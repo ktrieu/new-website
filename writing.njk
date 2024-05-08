@@ -1,0 +1,30 @@
+{% extends 'base.njk' %}
+{% set page_title = 'Writing' %}
+{% block content %}
+    <div class="mt-12 container mx-auto px-3 md:px-12 max-w-screen-lg text-lg">
+        <div class="mb-12">
+            <h1 class=" text-primary mb-6 text-6xl">Writing</h1>
+            <p>I read somewhere that a blog that doesn't have any posts looks better if you format it like a list of things you wrote.</p>
+        </div>
+        <h2 class="mb-1">Software</h2>
+        <hr class="mt-0 h-1 w-full"/>
+        {%- for post in collections.software | reverse %}
+            <div class="mb-6">
+                <a class="block no-underline hover:underline mb-6" href="{{ post.url }}">
+                    <h3 class="mb-1">{{ post.data.title }}</h3>
+                    <h6 class="italic">{{ post.data.subtitle }}</h6>
+                </a>
+            </div>
+        {% endfor -%}
+        <h2 class="mb-1">Miscellaneous</h2>
+        <hr class="mt-0 h-1 w-full"/>
+        {%- for post in collections.meta | reverse %}
+            <div class="mb-6">
+                <a class="block no-underline hover:underline mb-6" href="{{ post.url }}">
+                    <h3 class="mb-1">{{ post.data.title }}</h3>
+                    <h6 class="italic">{{ post.data.subtitle }}</h6>
+                </a>
+            </div>
+        {% endfor -%}
+    </div>
+{% endblock %}
