@@ -42,4 +42,4 @@ My counterpoints:
 
 You can guess which side won the argument.
 
-That's about it. With the introduction out of the way, I'll see you in [part 1](/blog/bootloader/part-1).
+That's about it. With the introduction out of the way, I'll see you in [part 1](/writing/bootloader/part-1).

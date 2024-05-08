@@ -7,7 +7,7 @@ layout: blogpost.njk
 enableToc: true
 ---
 
-Last time, in the [introduction](/blog/bootloader/intro) I went over what a bootloader actually does: namely transitioning from the default environment provided at boot time, to an environment suited for an operating system kernel to run on.
+Last time, in the [introduction](/writing/bootloader/intro) I went over what a bootloader actually does: namely transitioning from the default environment provided at boot time, to an environment suited for an operating system kernel to run on.
 
 In this post, we'll go deeper into what that default boot environment is like, and also get some code running.
 
@@ -237,7 +237,7 @@ And now at long last you can run QEMU with the right arguments, passing both the
 qemu-system-x86_64 --bios ovmf/OVMF.fd -drive file=fat:rw:bootimg/,format=raw
 ```
 
-![Success!](/static/blog/bootloader/part-1/success.png)
+![Success!](/static/writing/bootloader/part-1/success.png)
 
 Yeah, there’s an error message, but we did it!
 
