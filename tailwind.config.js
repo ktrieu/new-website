@@ -2,7 +2,7 @@ module.exports = {
   content: ["**/*.njk"],
   theme: {
     fontFamily: {
-      sans: ["Kiwi Maru", "sans-serif"],
+      sans: ["Quicksand", "sans-serif"],
       display: ["Quicksand", "serif"],
     },
     colors: {
