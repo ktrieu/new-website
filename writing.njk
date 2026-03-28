@@ -7,9 +7,9 @@
             <p>I read somewhere that a blog that doesn't have any posts looks better if you format it like a list of things you wrote.</p>
         </div>
         <div class="mb-12">
-            <h2 class="mb-1">Software</h2>
+            <h2 class="mb-1">Writing a Bootloader</h2>
             <hr class="mt-0 border-b-4 border-primary w-full"/>
-            {%- for post in collections.software | reverse %}
+            {%- for post in collections.bootloader | reverse %}
                 <div class="mb-6">
                     <a class="block no-underline hover:underline mb-6" href="{{ post.url }}">
                         <h3 class="mb-1">{{ post.data.title }}</h3>
@@ -21,7 +21,7 @@
                 </div>
             {% endfor -%}
         </div>
-        <div class="mb-12">
+        <!-- You know one day we might have something here. <div class="mb-12">
             <h2 class="mb-1">Miscellaneous</h2>
             <hr class="mt-0 border-b-4 border-primary w-full"/>
             {%- for post in collections.meta | reverse %}
@@ -35,6 +35,6 @@
                     </a>
                 </div>
             {% endfor -%}
-        </div>
+        </div> -->
     </div>
 {% endblock %}
