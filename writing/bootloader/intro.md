@@ -1,7 +1,7 @@
 ---
 title: Writing a bootloader in Rust
 subtitle: A "series" (it has two parts).
-date: 2024-04-25
+date: 2024-04-24
 tags: bootloader
 layout: blogpost.njk
 enableToc: true
