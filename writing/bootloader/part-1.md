@@ -216,6 +216,8 @@ qemu-system-x86_64 --bios ovmf/OVMF.fd -drive file=fat:rw:bootimg/,format=raw
 
 ![Success!](/static/writing/bootloader/part-1/success.png)
 
-Yeah, there’s an error message, but we did it!
+And there's our helpful message! 
+
+If you want to see everything we've done today together, I've put together a copy of our setup [on GitHub](https://github.com/ktrieu/blogloader/tree/part-1). It also has OVMF pre-downloaded, and a Makefile to automate some of the file shuffling we talked about earlier.
 
 Next time: we’ll write some actual code. See you in the next post.
