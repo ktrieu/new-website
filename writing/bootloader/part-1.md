@@ -11,6 +11,19 @@ Last time, in the [introduction](/writing/bootloader/intro) I went over what a b
 
 In this post, we'll go deeper into what that default boot environment is like, and also get some code running.
 
+<details>
+<summary>March 2026 updates</summary>
+
+This post was originally written in April 2024. Some things have changed since then:
+- `uefi-rs` has deprecated the `SystemTable` argument that's used to access protocols. I've updated the sample code to match.
+- Rust now includes a pre-compiled copy of the standard library for the UEFI target. I've removed the section about enabling `build-std`.
+
+I've also added a link to a GitHub repository with the actual code described in this post - this will hopefully keep me honest while writing.
+
+If you're interested in the previous version, this very post [is also on Github](https://github.com/ktrieu/new-website/blob/master/writing/bootloader/part-1.md). Take a look.
+
+</details>
+
 ## UEFI
 
 UEFI stands for Unified Extensible Firmware Interface, and it provides a standardized low-level interface for your bootloader to talk to the hardware. We’ll be using this to:
@@ -44,13 +57,13 @@ Your `main.rs` file will look like this:
 #![no_std]
 #![no_main]
 
-#[entry]
-fn uefi_main(_handle: Handle, mut system_table: SystemTable<Boot>) -> Status {
-    system_table
-        .stdout()
-        .write_str("Hello world!")
-        .unwrap();
+use core::{fmt::Write};
 
+use uefi::prelude::*;
+
+#[entry]
+fn uefi_main() -> Status {
+    system::with_stdout(|stdout| stdout.write_str("HELLO I AM A BOOTLOADER.").unwrap());
     loop {}
 }
 
@@ -62,9 +75,7 @@ I'll explain line by line:
 
 The `#[entry]` attribute at the top of `uefi_main` marks your function as _the_ main function so `uefi-rs` knows where it is. This allows it to transform it like we mentioned above, and also check if you’ve declared it properly.
 
-The UEFI main function takes two arguments: `_handle` is the UEFI handle of the “loaded image”, i.e., your program. `uefi-rs` uses it, but you won’t need it yourself.
-
-The `system_table` gives you access to what UEFI calls services, which let you interact with the computer. For now, we'll just grab the console output service using `stdout()` , write a fun message, and unwrap the result. After printing, we `loop {}` so you can see the output instead of exiting immediately.
+Finally, there's the actual main function. The first line logs a helpful message and the second one loops forever so our program doesn't immediately terminate.
 
 <details>
 <summary>My VS Code is complaining about tests</summary>
@@ -105,7 +116,7 @@ fn panic(info: &PanicInfo) -> ! {
 }
 ```
 
-There’s really nothing meaningful we can do here since we don’t even have access to the `system_table` to log a message. Such is low-level programming. I promise we’ll have something better here soon.
+For now, it'll do the same as the main function. We'll have something useful to add here later.
 
 Let's add that and try `cargo run` again. Will this work?
 
@@ -142,40 +153,6 @@ target = "x86_64-unknown-uefi"
 (Using this method will cause us some annoying problems, but it’s the only way to do it. Consider this foreshadowing.)
 
 Alright, now can we run it?
-
-## The standard library
-
-No.
-
-```bash
-error[E0531]: cannot find tuple struct or tuple variant `Ok` in this scope
-   --> /home/<your user dir>/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uguid-2.2.0/src/guid.rs:306:13
-    |
-306 |             Ok(g) => g,
-    |             ^^ not found in this scope
-(repeat 8 million times)
-```
-
-We’ve had an oversight: we told Rust there’s no standard library, but never provided anything to replace it. Some parts we can’t replace - file I/O, for example, requires OS support and so we can’t replicate it here. But that error is complaining about `Ok()` which is kind of universal, right? The platonic idea of being OK requires no OS support, presumably. Can we tell Rust we only want those parts?
-
-We can, it turns out. For that, we need to jump back into that `.cargo/config.toml` file and add this:
-
-```bash
-[unstable]
-build-std = ["core", "compiler_builtins"]
-build-std-features = ["compiler-builtins-mem"]
-```
-
-These lines tell Rust to build the standard library from source for your target, including only the basics we need and can support. The line about `compiler-builtins-mem` tells Rust to use its built-in copies of functions like `memcpy` and friends. This needs to be explicitly enabled, because most platforms have their own versions which are better. Again, in UEFI land, we don't get much for free.
-
-As the header says, this is unstable and requires we use Rust's nightly branch, so drop a `rust-toolchain.toml` in the root of your crate and put this in it:
-
-```bash
-[toolchain]
-channel = "nightly"
-```
-
-Ok, now can we run it?
 
 ## Running a UEFI binary
 
@@ -239,6 +216,8 @@ qemu-system-x86_64 --bios ovmf/OVMF.fd -drive file=fat:rw:bootimg/,format=raw
 
 ![Success!](/static/writing/bootloader/part-1/success.png)
 
-Yeah, there’s an error message, but we did it!
+And there's our helpful message! 
+
+If you want to see everything we've done today together, I've put together a copy of our setup [on GitHub](https://github.com/ktrieu/blogloader/tree/part-1). It also has OVMF pre-downloaded, and a Makefile to automate some of the file shuffling we talked about earlier.
 
 Next time: we’ll write some actual code. See you in the next post.
